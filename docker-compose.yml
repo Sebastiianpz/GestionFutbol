@@ -1,0 +1,38 @@
+services:
+
+  futbol:
+    container_name: gestion-futbol
+    image: usuario/gestion-futbol:latest
+    restart: always
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - db
+
+    networks:
+      - red-backend
+
+  db:
+    container_name: gestion-futbol-db
+    image: usuario/gestion-futbol-db:latest
+    restart: always
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+    networks:
+      - red-backend
+
+    hostname: db
+
+networks:
+  red-backend:
+    driver: bridge
+
+volumes:
+  mysql_data:
