@@ -1,0 +1,114 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión de Jugadores</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <h1 class="text-center mb-4">Gestión de Jugadores</h1>
+
+    <div class="card p-4 shadow">
+
+        <h4 class="mb-3">Agregar Jugador</h4>
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" id="nombre" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Edad</label>
+                <input type="number" id="edad" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Altura (m)</label>
+                <input type="number" step="0.01" id="altura" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Peso (kg)</label>
+                <input type="number" step="0.1" id="peso" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Habilidad</label>
+                <input type="number" id="habilidad" class="form-control" min="1" max="100">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Puesto</label>
+                <select id="puesto" class="form-select">
+                    <option value="">Seleccione...</option>
+                    <option>Arquero</option>
+                    <option>Defensor</option>
+                    <option>Mediocampista</option>
+                    <option>Delantero</option>
+                </select>
+            </div>
+
+        </div>
+
+        <button id="btnGuardarJugador" class="btn btn-success w-100" onclick="guardarJugador()">
+            Agregar jugador
+        </button>
+
+        <button class="btn btn-secondary w-100 mt-2" onclick="limpiarFormulario()">
+            Cancelar edición
+        </button>
+
+    </div>
+
+    <div class="card mt-5 shadow">
+
+        <div class="card-header">
+            <h4>Jugadores Registrados</h4>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-striped table-hover">
+
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Altura</th>
+                    <th>Peso</th>
+                    <th>Habilidad</th>
+                    <th>Puesto</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+
+                <tbody id="tablaJugadores"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="tabla.jsp" class="btn btn-primary">Ver Tabla de Posiciones</a>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jugadores.js"></script>
+
+</body>
+</html>
