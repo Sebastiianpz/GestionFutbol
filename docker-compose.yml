@@ -2,7 +2,7 @@ services:
 
   futbol:
     container_name: gestion-futbol
-    image: usuario/gestion-futbol:latest
+    build: .
     restart: always
 
     ports:
@@ -16,7 +16,7 @@ services:
 
   db:
     container_name: gestion-futbol-db
-    image: usuario/gestion-futbol-db:latest
+    image: mysql:8.0
     restart: always
 
     ports:
